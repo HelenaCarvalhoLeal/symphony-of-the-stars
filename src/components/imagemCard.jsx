@@ -24,12 +24,16 @@ const ImageCard = ({ imageData, handleDragStart }) => {
                 </div>
 
                 <div className="image-card-back">
-                    <h3>{imageData.details.description}</h3>
-                    <ul>
+                    <h4 className="description-title">{imageData.details.description}</h4>
+
+                    <ul className="instrument-list">
                         {imageData.details.instruments.map((instrument, index) => (
-                            <li key={index}>{instrument.instrument}</li>
+                            <li key={index} className="instrument-item">
+                                {instrument.instrument}
+                            </li>
                         ))}
                     </ul>
+
                     <button className="button-flip" onClick={handleFlip}>
                         Desvirar Imagem
                     </button>

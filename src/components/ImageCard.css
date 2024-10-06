@@ -73,3 +73,57 @@
     background-color: #9DB4C0;
     color: #253237;
 }
+
+.description-title {
+    font-size: 0.85em;
+    /* Reduzir o tamanho da fonte do título */
+    font-weight: normal;
+    margin-bottom: 8px;
+    /* Reduzir o espaço abaixo do título */
+    color: #5C6B73;
+    text-align: center;
+    line-height: 1.2;
+    /* Diminuir o espaçamento entre linhas */
+}
+
+.instrument-list {
+    padding: 0;
+    list-style-type: none;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.instrument-item {
+    font-size: 0.75em;
+    /* Reduzir o tamanho da fonte dos itens da lista */
+    background-color: #E0FBFC;
+    color: #5C6B73;
+    padding: 3px 5px;
+    /* Reduzir padding dos itens */
+    margin-bottom: 4px;
+    /* Diminuir o espaço entre os itens */
+    border-radius: 3px;
+}
+
+.instrument-item:hover {
+    background-color: #C2DFE3;
+    transition: background-color 0.2s ease;
+}
+
+.button-flip {
+    background-color: #9DB4C0;
+    padding: 3px 8px;
+    /* Reduzir o padding do botão */
+    font-size: 0.75em;
+    /* Diminuir o tamanho da fonte */
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.button-flip:hover {
+    background-color: #5C6B73;
+}
