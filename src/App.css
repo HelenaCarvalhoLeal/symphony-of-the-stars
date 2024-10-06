@@ -8,12 +8,14 @@ html, body {
     height: 100%;
 }
 
+/*
 .App {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     overflow-y: scroll;
 }
+*/
 
 .section {
     height: 100vh;
@@ -94,4 +96,40 @@ html, body {
 
 .label-button:active {
     transform: scale(0.98);
+}
+
+.Start {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 300px;
+    text-align: center;
+}
+
+.Start button {
+    font-size: 64px;
+    margin: 10px;
+    padding: 20px 60px; /* Mantenha o padding para o espaçamento interno */
+    border: 2px solid #CCC9DC;
+    background-color: transparent;
+    color: #CCC9DC;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center; /* Garante que o texto fique centralizado */
+}
+
+.Start button:hover {
+    background-color: #000000; /* Fundo escuro ao passar o mouse */
+    color: #fff; /* Texto branco no hover */
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+.Start button:focus {
+    outline: none; /*    Remove o foco padrão do botão */
+}
+
+.Start button:active {
+    transform: scale(0.98); /* Efeito de pressionamento do botão */
 }
