@@ -1,10 +1,10 @@
 .image-card {
-    margin: 20px;
+    margin: 15px;
     perspective: 1000px;
 }
 
 .image-card-inner {
-    width: 150px;
+    width: 200px;
     height: 200px;
     position: relative;
     transition: transform 0.6s;
@@ -12,6 +12,7 @@
 }
 
 .image-card-front {
+    width: 200px;
     position: absolute;
     backface-visibility: hidden;
 }

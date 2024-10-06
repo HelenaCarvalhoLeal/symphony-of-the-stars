@@ -60,7 +60,7 @@ const ImageList = () => {
     return (
         <div className="container">
             <div className="image-list">
-                <h2>Imagens do JWST</h2>
+                <h2>JWST Images</h2>
                 <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center' }}>
                     {images.map((image) => (
                         <ImageCard key={image.id} imageData={image} handleDragStart={handleDragStart} />
@@ -73,7 +73,7 @@ const ImageList = () => {
             </div>
 
             <div className="drop-zone" onDrop={handleDrop} onDragOver={handleDragOver}>
-                <h2>Área central</h2>
+                <h2>Central Area</h2>
                 {droppedImages.map((image) => (
                     <div key={image.id} className="dropped-image">
                         <img src={image.location} alt={image.details.description} width="200" />

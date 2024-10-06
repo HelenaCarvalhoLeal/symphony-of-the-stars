@@ -35,12 +35,12 @@ const ImageCard = ({ imageData, handleDragStart }) => {
                     </ul>
 
                     <button className="button-flip" onClick={handleFlip}>
-                        Desvirar Imagem
+                        Flip Image
                     </button>
                 </div>
             </div>
             <button className="button-show-details" onClick={handleFlip}>
-                {isFlipped ? 'Virar Imagem' : 'Mostrar Detalhes'}
+                {isFlipped ? 'Flip Image' : 'See Details'}
             </button>
         </div>
     );
