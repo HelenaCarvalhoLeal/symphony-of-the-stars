@@ -1,6 +1,6 @@
 // useState is used to store the URL of the selected image
 import React, { useState } from "react";
-import init, { generate_music_wasm } from "./wasm/wasm.js";
+import init, { generate_music_wasm } from "../wasm/wasm.js";
 
 /**
  * ImageUploader Component
