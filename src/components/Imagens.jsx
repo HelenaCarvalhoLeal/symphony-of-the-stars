@@ -16,11 +16,7 @@ const ImageList = () => {
     useEffect(() => {
         const fetchImages = async () => {
             try {
-                const response = await api.get(`https://api.jwstapi.com/all/type/jpg?page=${page}&perPage=10`, {
-                    headers: {
-                        'X-API-KEY': 'sua-chave-api'
-                    }
-                });
+                const response = await api.get(`https://api.jwstapi.com/all/type/jpg?page=${page}&perPage=10`);
 
                 if (response.data.statusCode === 200) {
                     console.log(response.data)

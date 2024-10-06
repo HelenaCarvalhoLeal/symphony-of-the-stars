@@ -48,6 +48,33 @@ h3 {
     backdrop-filter: blur(10px);
 }
 
+
+/* Estilo da barra de rolagem para navegadores WebKit */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #E0FBFC;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: #5C6B73;
+    border-radius: 10px;
+    border: 2px solid #C2DFE3;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background-color: #253237;
+}
+
+/* Para Firefox */
+.scrollable-element {
+    scrollbar-color: #5C6B73 #E0FBFC;
+    scrollbar-width: thin;
+}
+
 /* Estilo da lista de imagens */
 .image-list {
     width: 25%;
@@ -56,6 +83,8 @@ h3 {
     padding-right: 20px;
     overflow-y: auto;
     max-height: 100%;
+    text-align: center;
+
 }
 
 .image-list h2 {
