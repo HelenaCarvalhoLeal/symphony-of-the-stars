@@ -1,5 +1,5 @@
 /* Estilos gerais */
-.container {
+body {
     font-family: 'Montserrat', sans-serif;
     /* background: linear-gradient(135deg, #E0FBFC, #253237); */
     background: #0C1821;
@@ -45,7 +45,6 @@ h2 {
     padding-right: 20px;
     overflow-y: auto;
     max-height: 100%;
-    margin-right: 15px;
 }
 
 .image-list h2 {
@@ -72,7 +71,6 @@ h2 {
     width: 100%;
     border-radius: 8px;
     box-shadow: 0px 0px 15px rgba(94, 107, 115, 0.7);
-    height: 150px;
     /* Cor da sombra mais escura */
 }
 
