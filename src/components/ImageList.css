@@ -28,8 +28,10 @@ h2 {
     display: flex;
     justify-content: space-between;
     padding: 20px;
+    margin-top: 50px;
+    margin-left: 20px;
     width: 90%;
-    height: 100vh;
+    height: 90vh;
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.1);
     /* Aumentei a transparência */
@@ -104,13 +106,15 @@ button:hover {
     /* Atualizado para usar a cor da paleta */
     min-height: 400px;
     max-height: 70vh;
-    padding: 20px;
+    /* padding: 20px; */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     color: #253237;
+    margin-left: 20px;
+    margin-top: 50px;
     /* Cor do texto */
 }
 
