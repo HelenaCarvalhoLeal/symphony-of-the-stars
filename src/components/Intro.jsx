@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 function Intro() {
   const texto = "Webb is the premier observatory of the next decade, serving thousands of astronomers worldwide. It studies every phase in the history of our Universe.";
   const palavras = texto.split(' '); // Divide o texto em palavras
+  const [mostrarBotao, setMostrarBotao] = useState(false); // Controla a visibilidade do botão
   const [indice, setIndice] = useState(0); // Indica quantas palavras devem ser exibidas por linha
   const palavrasPorLinha = 4; // Número de palavras por linha
   const numeroDeLinhas = 6; // Número de linhas que queremos exibir
@@ -16,13 +17,14 @@ function Intro() {
             return prevIndice + 1; // Avança o índice até a quantidade máxima de palavras
           } else {
             clearInterval(intervalo); // Para o intervalo ao alcançar o limite
+            setMostrarBotao(true); // Exibe o botão após a exibição do texto
             return prevIndice; // Retorna o último índice
           }
         });
       }, 50); // Atualiza a cada 166ms
 
       return () => clearInterval(intervalo); // Limpa o intervalo ao desmontar o componente
-    }, 300); // Atraso de 1 segundo (1000ms)
+    }, 500); // Atraso de 1 segundo (1000ms)
 
     return () => clearTimeout(atraso); // Limpa o timeout se o componente desmontar antes do atraso
   }, []);
@@ -37,12 +39,16 @@ function Intro() {
       {linhas.map((linha, i) => (
         <div key={i} style={{ marginBottom: '10px' }}>
           {linha.slice(0, indice - i * palavrasPorLinha).map((palavra, j) => (
-            <span key={j} style={{ margin: '0 5px' }}>
+            <span className='fade-in' key={j} style={{ margin: '0 5px' }}>
               {palavra}
             </span>
           ))}
         </div>
       ))}
+      {/* Botão que aparece suavemente */}
+      {mostrarBotao && (
+        <button>Next</button>
+      )}
     </div>
   );
 }
