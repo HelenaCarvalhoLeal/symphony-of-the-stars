@@ -10,7 +10,7 @@ function Home() {
                 <Link to="/upload">
                     <button>Build Your Own Symphony</button>
                 </Link>
-                <Link to="/predefined">
+                <Link to="/api">
                     <button>Explore the James Webb Telescope</button>
                 </Link>
             </div>
