@@ -153,6 +153,7 @@ button:hover {
     color: #253237;
     margin-left: 20px;
     margin-top: 50px;
+    flex-wrap: wrap;
     /* Cor do texto */
 }
 
