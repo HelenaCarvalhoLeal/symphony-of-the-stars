@@ -43,5 +43,28 @@ html, body {
 .Home button {
     font-size: 25px;
     margin: 10px;
-    padding: 100px 130px;
+    padding: 20px 60px; /* Mantenha o padding para o espaçamento interno */
+    width: 350px; /* Define uma largura fixa para os botões */
+    border: 2px solid #CCC9DC;
+    background-color: transparent;
+    color: #CCC9DC;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center; /* Garante que o texto fique centralizado */
+}
+
+
+.Home button:hover {
+    background-color: #000000; /* Fundo escuro ao passar o mouse */
+    color: #fff; /* Texto branco no hover */
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+.Home button:focus {
+    outline: none; /*    Remove o foco padrão do botão */
+}
+
+.Home button:active {
+    transform: scale(0.98); /* Efeito de pressionamento do botão */
 }
