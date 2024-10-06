@@ -1,39 +1,97 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+#root {
+    height: 100%;
+}
+
 .App {
-  text-align: center;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-y: scroll;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.section {
+    height: 100vh;
+    padding: 20px;
+    background-color: lightgray;
+    margin-bottom: 10px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.Home {
+    min-height: 200vh; /* Altura suficiente para permitir rolagem */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.Home h1 {
+    font-size: 64px;
 }
 
-.App-link {
-  color: #61dafb;
+.Home h3 {
+    font-size: 32px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
+.Home button {
+    font-size: 25px;
+    margin: 10px;
+    padding: 20px 60px; /* Mantenha o padding para o espaçamento interno */
+    width: 350px; /* Define uma largura fixa para os botões */
+    border: 2px solid #CCC9DC;
+    background-color: transparent;
+    color: #CCC9DC;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-align: center; /* Garante que o texto fique centralizado */
+}
 
-  to {
-    transform: rotate(360deg);
-  }
+
+.Home button:hover {
+    background-color: #000000; /* Fundo escuro ao passar o mouse */
+    color: #fff; /* Texto branco no hover */
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+.Home button:focus {
+    outline: none; /*    Remove o foco padrão do botão */
+}
+
+.Home button:active {
+    transform: scale(0.98); /* Efeito de pressionamento do botão */
+}
+
+.label-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: transparent;
+    color: #CCC9DC;
+    border: 2px solid #CCC9DC;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    font-weight: bold;
+}
+
+.label-button:hover {
+    background-color: #000000; /* Cor mais escura ao passar o mouse */
+    color: #fff;
+    border-color: #fff;
+    transform: scale(1.05);
+}
+
+.label-button:focus {
+    outline: none;
+}
+
+.label-button:active {
+    transform: scale(0.98);
 }
