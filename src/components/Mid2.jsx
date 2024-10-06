@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function Mid1() {
-  const texto = "Webb studies every phase in the history of our Universe, ranging from the first luminous glows after the Big Bang, to the formation of solar systems capable of supporting life on planets like Earth, to the evolution of our own Solar System.";
+function Mid2() {
+  const texto = "Webb launched on Dec. 25th 2021. It does not orbit around the Earth like the Hubble Space Telescope, it orbits the Sun 1.5 million kilometers (1 million miles) away from the Earth at what is called the second Lagrange point or L2.";
   const palavras = texto.split(' '); // Divide o texto em palavras
   const [mostrarBotao, setMostrarBotao] = useState(false); // Controla a visibilidade do botão
   const [indice, setIndice] = useState(0); // Indica quantas palavras devem ser exibidas por linha
@@ -48,7 +48,7 @@ function Mid1() {
       ))}
       {/* Botão que aparece suavemente */}
       {mostrarBotao && (
-        <Link to="/mid2">
+        <Link to='/mid3'>
             <button>Next</button>
         </Link>
       )}
@@ -56,4 +56,4 @@ function Mid1() {
   );
 }
 
-export default Mid1
+export default Mid2
