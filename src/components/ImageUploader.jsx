@@ -16,50 +16,34 @@ const ImageUploader = () => {
     const [error, setError] = useState(null); 
     const [image, setImage] = useState(null);
 
-    // function to manipulate the image selection
-    const handleImageChange = (event) => {
-        // access the first image selected
-        const file = event.target.files[0];
-
-        if (file) {
-            if (!file.type.startsWith('image/')) {
-                setError('Please, select an image file');
-                return;
-            }
-            setError(null);
-
-            // object for asynchronous file reading
-            const reader = new FileReader();
-            
-            // event triggered when reading is complete
-            reader.onloadend = () => {
-                setImage(reader.result);
-            };
-
-            // initiates file reading as data url 
-            reader.readAsDataURL(file);
-        }
-    };
-
-    const handleFileUpload = async (event) => {
+  const handleFileChange = async (event) => {
         const file = event.target.files[0];
         if (!file) return;
 
-        setLoading(true);
+        // Verifica se o arquivo é uma imagem
+        if (!file.type.startsWith('image/')) {
+            setError('Please, select an image file');
+            return;
+        }
         setError(null);
 
-        try {
-            // Inicialize o módulo WebAssembly
-            await init();
+        // Cria um objeto FileReader para leitura da imagem
+        const reader = new FileReader();
+        reader.onloadend = () => {
+            setImage(reader.result);    
+        };
+        reader.readAsDataURL(file); // Lê a imagem como uma URL
 
-            // Leia os bytes do arquivo
+        // Inicia o upload do arquivo
+        setLoading(true);
+        try {
+            await init();
             const arrayBuffer = await file.arrayBuffer();
             const imageBytes = new Uint8Array(arrayBuffer);
 
-            // Defina os parâmetros (ajuste conforme necessário)
             const format = file.type === 'image/png' ? 'png' :
                            file.type === 'image/jpeg' ? 'jpg' :
-                           file.type === 'image/tiff' ? 'tif' : 'png'; // Padrão para png
+                           file.type === 'image/tiff' ? 'tif' : 'png';
             const sample_rate = 44100;
             const freq1 = 220;
             const freq2 = 880;
@@ -67,7 +51,6 @@ const ImageUploader = () => {
             const fade_in_duration = 0.1;
             const fade_out_duration = 0.3;
 
-            // Chame a função WebAssembly
             const wavBytes = generate_music_wasm(
                 imageBytes,
                 format,
@@ -79,7 +62,6 @@ const ImageUploader = () => {
                 fade_out_duration
             );
 
-            // Crie um Blob a partir dos bytes
             const blob = new Blob([wavBytes], { type: 'audio/wav' });
             const url = URL.createObjectURL(blob);
             setAudioURL(url);
@@ -91,6 +73,7 @@ const ImageUploader = () => {
         }
     };
 
+
     const handleDownload = () => {
         if (!audioURL) return;
         const link = document.createElement('a');
@@ -100,7 +83,6 @@ const ImageUploader = () => {
     };
 
     return (
-        // main container that centralizes the content
         <div style={{
             textAlign: 'center',
             marginTop: '20px'
@@ -112,7 +94,7 @@ const ImageUploader = () => {
                     type="file" accept="image/png, image/jpeg, image/tiff" 
                     style={{ display: 'none' }} 
                     aria-label="Select image" 
-                    onChange={handleFileUpload}
+                    onChange={handleFileChange}
                 />
                 <label
                     htmlFor="file-input"
@@ -130,8 +112,8 @@ const ImageUploader = () => {
                         src={image}
                         alt="Preview"
                         style={{
-                            maxWidth: '100%',
-                            maxHeight: '400px',
+                            width: '80%',  // Imagem cobre 80% da largura da página
+                            height: 'auto', // Mantém a proporção da imagem
                             border: '1px solid #ccc',
                         }}
                     />
