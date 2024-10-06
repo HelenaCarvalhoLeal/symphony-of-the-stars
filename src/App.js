@@ -1,11 +1,17 @@
 import React from 'react';
-import ImageUploader from './ImageUploader';
+import ImageUploader from './components/ImageUploader';
+import ImageList from './components/Imagens';
+import Home from './components/Home';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
 function App() {
     return (
-        <div style={{ backgroundColor: '#0C1821', minHeight: '100vh', padding: '20px' }}>
-            <ImageUploader />
-        </div>
+        <Router>
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/upload" element={<ImageUploader />} />
+            </Routes>
+        </Router>
     );
 }
 

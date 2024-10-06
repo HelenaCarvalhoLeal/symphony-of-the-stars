@@ -1,5 +1,6 @@
 // useState is used to store the URL of the selected image
 import React, { useState } from "react";
+import './ImageList.css';
 
 /**
  * ImageUploader Component
