@@ -6,7 +6,8 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //import './components/ImageList.css'
 import './App.css';
 import Start from './components/Start';
-import Intro from './components/Intro'
+import Intro from './components/Intro';
+import Mid1 from './components/Mid1';
 
 function App() {
     return ( 
@@ -14,6 +15,7 @@ function App() {
             <Routes>
                 <Route path="/" element={<Start />} />
                 <Route path="/intro" element={<Intro />} />
+                <Route path="/mid1" element={<Mid1 />} />
             </Routes>
        </Router>
     );

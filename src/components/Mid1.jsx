@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-function Intro() {
-  const texto = "Webb is the premier observatory of the next decade, serving thousands of astronomers worldwide. It studies every phase in the history of our Universe.";
+function Mid1() {
+  const texto = "Webb studies every phase in the history of our Universe, ranging from the first luminous glows after the Big Bang, to the formation of solar systems capable of supporting life on planets like Earth, to the evolution of our own Solar System.";
   const palavras = texto.split(' '); // Divide o texto em palavras
   const [mostrarBotao, setMostrarBotao] = useState(false); // Controla a visibilidade do botão
   const [indice, setIndice] = useState(0); // Indica quantas palavras devem ser exibidas por linha
-  const palavrasPorLinha = 4; // Número de palavras por linha
+  const palavrasPorLinha = 7; // Número de palavras por linha
   const numeroDeLinhas = 6; // Número de linhas que queremos exibir
 
   useEffect(() => {
@@ -48,7 +48,7 @@ function Intro() {
       ))}
       {/* Botão que aparece suavemente */}
       {mostrarBotao && (
-        <Link to="/mid1">
+        <Link>
             <button>Next</button>
         </Link>
       )}
@@ -56,4 +56,4 @@ function Intro() {
   );
 }
 
-export default Intro
+export default Mid1
