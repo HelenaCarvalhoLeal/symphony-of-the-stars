@@ -6,12 +6,14 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 //import './components/ImageList.css'
 import './App.css';
 import Start from './components/Start';
+import Intro from './components/Intro'
 
 function App() {
     return ( 
        <Router>
             <Routes>
                 <Route path="/" element={<Start />} />
+                <Route path="/intro" element={<Intro />} />
             </Routes>
        </Router>
     );
