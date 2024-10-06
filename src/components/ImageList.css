@@ -2,7 +2,7 @@
 body {
     font-family: 'Montserrat', sans-serif;
     /* background: linear-gradient(135deg, #E0FBFC, #253237); */
-    background: #0C1821;
+    background: linear-gradient(to right, #000000, #324A5F);
     /* Atualizado para usar cores da paleta */
     color: #CCC9DC;
     /* Cor do texto */
