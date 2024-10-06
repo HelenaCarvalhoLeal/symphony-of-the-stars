@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import api from '../services/api';
 import './ImageList.css';
 import ImageCard from './imagemCard';
+import localImages from './imagesAssets';
 const ImageList = () => {
     const [images, setImages] = useState([]);
     const [page, setPage] = useState(1);
@@ -14,23 +14,26 @@ const ImageList = () => {
     });
 
     useEffect(() => {
-        const fetchImages = async () => {
-            try {
-                const response = await api.get(`https://api.jwstapi.com/all/type/jpg?page=${page}&perPage=10`);
+        setImages(localImages)
+        // const fetchImages = async () => {
+        //     try {
+        //         const response = await api.get(`https://api.jwstapi.com/all/type/jpg?page=${page}&perPage=10`);
 
-                if (response.data.statusCode === 200) {
-                    console.log(response.data)
-                    setImages((prevImages) => [...prevImages, ...response.data.body]);
-                } else {
-                    console.error('Erro na resposta da API:', response.data.error);
-                }
-            } catch (error) {
-                console.error('Erro na requisição:', error);
-            }
-        };
+        //         if (response.data.statusCode === 200) {
+        //             console.log(response.data)
+        //             setImages((prevImages) => [...prevImages, ...response.data.body]);
+        //         } else {
+        //             console.error('Erro na resposta da API:', response.data.error);
+        //         }
+        //     } catch (error) {
+        //         console.error('Erro na requisição:', error);
+        //     }
+        // };
 
-        fetchImages();
-    }, [page]);
+        // fetchImages();
+    }, [
+        // page
+    ]);
 
     const handleDragStart = (image) => {
         setDraggedImage(image);
