@@ -44,14 +44,33 @@ const ImageUploader = () => {
                 marginTop: '20px'
             }}>
             <div>
-                <h1>Select an Image</h1>
+                <h1 style={{ color: '#CCC9DC' }}>Select an Image</h1>
                 <input
                     type="file"
                     accept="image/*"
+                    id="file-input"
                     onChange={handleImageChange}
-                    style={{ marginBottom: '20px' }}
+                    style={{ display: 'none' }}
                     aria-label="Select image"
                 />
+
+                <label
+                    htmlFor="file-input"
+                    style={{
+                        display: 'inline-block',
+                        padding: '10px 20px',
+                        backgroundColor: '#324A5F', 
+                        color: 'white', 
+                        borderRadius: '5px', 
+                        cursor: 'pointer', 
+                        transition: 'background-color 0.3s',
+                        fontWeight: 'bold', 
+                    }}
+                    onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#1B2A41'}
+                    onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#324A5F'}
+                >
+                    Select Image
+                </label>
             </div>
 
             <div>
