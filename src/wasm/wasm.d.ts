@@ -9,15 +9,17 @@
 * @param {Uint32Array} durations
 * @param {number} fade_in_duration
 * @param {number} fade_out_duration
+* @param {number} width
+* @param {number} height
 * @returns {Uint8Array}
 */
-export function generate_music_wasm(image_bytes: Uint8Array, format: string, sample_rate: number, freq1: number, freq2: number, durations: Uint32Array, fade_in_duration: number, fade_out_duration: number): Uint8Array;
+export function generate_music_wasm(image_bytes: Uint8Array, format: string, sample_rate: number, freq1: number, freq2: number, durations: Uint32Array, fade_in_duration: number, fade_out_duration: number, width: number, height: number): Uint8Array;
 
 export type InitInput = RequestInfo | URL | Response | BufferSource | WebAssembly.Module;
 
 export interface InitOutput {
   readonly memory: WebAssembly.Memory;
-  readonly generate_music_wasm: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number, j: number, k: number, l: number) => void;
+  readonly generate_music_wasm: (a: number, b: number, c: number, d: number, e: number, f: number, g: number, h: number, i: number, j: number, k: number, l: number, m: number, n: number) => void;
   readonly __wbindgen_add_to_stack_pointer: (a: number) => number;
   readonly __wbindgen_malloc: (a: number, b: number) => number;
   readonly __wbindgen_realloc: (a: number, b: number, c: number, d: number) => number;

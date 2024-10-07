@@ -148,9 +148,11 @@ function getArrayU8FromWasm0(ptr, len) {
 * @param {Uint32Array} durations
 * @param {number} fade_in_duration
 * @param {number} fade_out_duration
+* @param {number} width
+* @param {number} height
 * @returns {Uint8Array}
 */
-export function generate_music_wasm(image_bytes, format, sample_rate, freq1, freq2, durations, fade_in_duration, fade_out_duration) {
+export function generate_music_wasm(image_bytes, format, sample_rate, freq1, freq2, durations, fade_in_duration, fade_out_duration, width, height) {
     try {
         const retptr = wasm.__wbindgen_add_to_stack_pointer(-16);
         const ptr0 = passArray8ToWasm0(image_bytes, wasm.__wbindgen_malloc);
@@ -159,7 +161,7 @@ export function generate_music_wasm(image_bytes, format, sample_rate, freq1, fre
         const len1 = WASM_VECTOR_LEN;
         const ptr2 = passArray32ToWasm0(durations, wasm.__wbindgen_malloc);
         const len2 = WASM_VECTOR_LEN;
-        wasm.generate_music_wasm(retptr, ptr0, len0, ptr1, len1, sample_rate, freq1, freq2, ptr2, len2, fade_in_duration, fade_out_duration);
+        wasm.generate_music_wasm(retptr, ptr0, len0, ptr1, len1, sample_rate, freq1, freq2, ptr2, len2, fade_in_duration, fade_out_duration, width, height);
         var r0 = getDataViewMemory0().getInt32(retptr + 4 * 0, true);
         var r1 = getDataViewMemory0().getInt32(retptr + 4 * 1, true);
         var v4 = getArrayU8FromWasm0(r0, r1).slice();
