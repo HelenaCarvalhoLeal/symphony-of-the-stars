@@ -1,0 +1,42 @@
+.fade-in {
+  opacity: 0; /* Início invisível */
+  animation: fadeIn 5s forwards; /* Animação de fade-in */
+}
+
+/* Animação de fade-in */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Início invisível */
+  }
+  to {
+    opacity: 1; /* Totalmente visível */
+  }
+}
+
+.Mid4 button {
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px 10px; /* Mantenha o padding para o espaçamento interno */
+    border: 2px solid #CCC9DC;
+    background-color: transparent;
+    color: #CCC9DC;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: 0; /* Inicialmente invisível */
+    animation: fadeIn 3s forwards; /* Animação de fade-in para o botão */
+}
+
+.Mid4 button:hover {
+    background-color: #000000; /* Fundo escuro ao passar o mouse */
+    color: #fff; /* Texto branco no hover */
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+.Mid4 button:focus {
+    outline: none; /* Remove o foco padrão do botão */
+}
+
+.Mid4 button:active {
+    transform: scale(0.98); /* Efeito de pressionamento do botão */
+}

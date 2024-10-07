@@ -10,6 +10,8 @@ import Intro from './components/Intro';
 import Mid1 from './components/Mid1';
 import Mid2 from './components/Mid2';
 import Mid3 from './components/Mid3';
+import Mid4 from './components/Mid4';
+import Mid5 from './components/Mid5';
 
 function App() {
     return ( 
@@ -20,6 +22,8 @@ function App() {
                 <Route path="/mid1" element={<Mid1 />} />
                 <Route path="/mid2" element={<Mid2 />} />
                 <Route path="/mid3" element={<Mid3 />} />
+                <Route path="/mid4" element={<Mid4 />} />
+                <Route path="/mid5" element={<Mid5 />} />
             </Routes>
        </Router>
     );
