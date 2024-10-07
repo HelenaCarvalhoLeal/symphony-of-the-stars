@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import init, { generate_music_wasm } from "../wasm/wasm.js";
 import './ImageList.css';
 import ImageCard from './imagemCard';
 import localImages from './imagesAssets';
-import init, { generate_music_wasm } from "../wasm/wasm.js";
 
 const ImageList = () => {
+    const MAX_IMAGES = 5;
     const [images, setImages] = useState([]);
     const [page, setPage] = useState(1);
     const [draggedImage, setDraggedImage] = useState(null);
@@ -16,7 +17,7 @@ const ImageList = () => {
     });
     const [audioURL, setAudioURL] = useState(null);
     const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null); 
+    const [error, setError] = useState(null);
 
     const handleFileChange = async (link) => {
 
@@ -28,15 +29,15 @@ const ImageList = () => {
             if (!response.ok) {
                 throw new Error('Erro ao baixar a imagem.');
             }
-            
+
             const imageArrayBuffer = await response.arrayBuffer();
             const imageBytes = new Uint8Array(imageArrayBuffer);
 
             await init();
 
             const format = response.url.endsWith('.png') ? 'png' :
-                            response.url.endsWith('.jpg') || response.url.endsWith('.jpeg') ? 'jpg' :
-                            response.url.endsWith('.tif') || response.url.endsWith('.tiff') ? 'tif' : 'png'; // Default para png
+                response.url.endsWith('.jpg') || response.url.endsWith('.jpeg') ? 'jpg' :
+                    response.url.endsWith('.tif') || response.url.endsWith('.tiff') ? 'tif' : 'png'; // Default para png
             const sample_rate = 44100;
             const freq1 = 220;
             const freq2 = 880;
@@ -95,6 +96,11 @@ const ImageList = () => {
 
     const handleFormSubmit = (e) => {
         e.preventDefault();
+        if (droppedImages.length >= MAX_IMAGES) {
+            setDraggedImage(null);
+            setIsModalOpen(false);
+            return
+        }
         setDroppedImages((prevImages) => [
             ...prevImages,
             { ...draggedImage, proportion: formData.proportion, duration: formData.duration }
@@ -114,9 +120,6 @@ const ImageList = () => {
 
                     ))}
                 </div>
-                <button onClick={() => setPage((prevPage) => prevPage + 1)}>
-                    Carregar mais
-                </button>
             </div>
 
             <div className="drop-zone">
@@ -131,19 +134,22 @@ const ImageList = () => {
                     ))}
                 </div>
 
-                <div>
-                    {loading && <p>Gerando música...</p>}
-                    {error && <p style={{ color: 'red' }}>{error}</p>}
-                    {audioURL && (
-                        <div>
-                            <audio controls src={audioURL}></audio>
-                            <button onClick={handleDownload}>Baixar Música</button>
-                        </div>
-                    )}
-                </div>
+                {audioURL && (
+                    <div className="audio-container">
+                        {loading && <p>Gerando música...</p>}
+                        {error && <p style={{ color: 'red' }}>{error}</p>}
+                        {audioURL && (
+                            <div>
+                                <audio controls src={audioURL}></audio>
+                                <button onClick={handleDownload}>Baixar Música</button>
+                            </div>
+                        )}
+                    </div>
+                )}
             </div>
 
-            
+
+
 
             {isModalOpen && (
                 <div className="modal">

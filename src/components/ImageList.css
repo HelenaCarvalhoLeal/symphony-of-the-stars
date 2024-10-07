@@ -4,7 +4,7 @@ body {
     /* background: linear-gradient(135deg, #E0FBFC, #253237); */
     background: linear-gradient(to right, #000000, #324A5F);
     /* Atualizado para usar cores da paleta */
-    color: #CCC9DC;
+    color: #324A5F;
     /* Cor do texto */
     margin: 0;
     padding: 0;
@@ -135,16 +135,11 @@ button:hover {
     /* Sombra ao passar o mouse */
 }
 
-/* Estilo da zona de drop */
-.box-drop-zone {
+/* .box-drop-zone {
     width: 90%;
     background: rgba(255, 255, 255, 0.1);
-    /* Aumentei a transparência */
     border: 2px dashed #5C6B73;
-    /* Atualizado para usar a cor da paleta */
-    min-height: 400px;
-    max-height: 70vh;
-    /* padding: 20px; */
+    height: 70%;
     border-radius: 8px;
     display: flex;
     flex-direction: row;
@@ -154,18 +149,14 @@ button:hover {
     margin-left: 20px;
     margin-top: 50px;
     flex-wrap: wrap;
-    /* Cor do texto */
 }
 
 .drop-zone {
     width: 90%;
     background: rgba(255, 255, 255, 0.1);
-    /* Aumentei a transparência */
     border: 2px dashed #5C6B73;
-    /* Atualizado para usar a cor da paleta */
     min-height: 400px;
     max-height: 70vh;
-    /* padding: 20px; */
     border-radius: 8px;
     display: flex;
     flex-direction: column;
@@ -174,12 +165,10 @@ button:hover {
     color: #253237;
     margin-left: 20px;
     margin-top: 50px;
-    /* Cor do texto */
 }
 
 .drop-zone h2 {
     color: #5C6B73;
-    /* Atualizado para uma cor mais escura */
     margin-bottom: 20px;
 }
 
@@ -191,14 +180,78 @@ button:hover {
     border-radius: 8px;
     width: 200px;
     box-shadow: 0px 0px 15px rgba(94, 107, 115, 0.7);
-    /* Cor da sombra mais escura */
 }
 
 .dropped-image p {
     margin-top: 10px;
     font-family: 'Roboto Mono', monospace;
     color: #324A5F;
-    /* Atualizado para uma cor mais escura */
+} */
+
+.drop-zone {
+    width: 90%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #5C6B73;
+    min-height: 400px;
+    max-height: none;
+    /* Removemos o max-height para permitir crescimento */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    /* Alterado para flex-start */
+    color: #253237;
+    margin-left: 20px;
+    margin-top: 50px;
+    overflow-y: auto;
+    /* Adicionado para permitir rolagem se necessário */
+}
+
+.box-drop-zone {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px dashed #5C6B73;
+    min-height: 200px;
+    /* Altura mínima reduzida */
+    height: auto;
+    /* Permite que cresça conforme o conteúdo */
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    /* Alterado para flex-start */
+    justify-content: center;
+    color: #253237;
+    flex-wrap: wrap;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.drop-zone h2 {
+    color: #5C6B73;
+    margin-bottom: 20px;
+}
+
+.dropped-image {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 150px;
+}
+
+.dropped-image img {
+    border-radius: 8px;
+    width: 120px;
+    box-shadow: 0px 0px 15px rgba(94, 107, 115, 0.7);
+}
+
+.dropped-image p {
+    margin-top: 10px;
+    font-family: 'Roboto Mono', monospace;
+    color: #324A5F;
+    text-align: center;
 }
 
 /* Modal */
@@ -217,43 +270,56 @@ button:hover {
 .modal-content {
     background-color: #C2DFE3;
     /* Cor de fundo mais clara */
-    padding: 20px;
+    padding: 30px;
+    /* Aumentei o padding para dar mais espaço interno */
     border-radius: 8px;
     width: 400px;
     text-align: center;
-    box-shadow: 0px 0px 15px rgba(94, 107, 115, 0.7);
-    /* Cor da sombra mais escura */
+    box-shadow: 0px 0px 20px rgba(94, 107, 115, 0.7);
+    /* Sombra um pouco mais forte */
 }
 
 .modal-content form label {
     display: block;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
+    /* Aumentei a margem inferior para mais espaço */
     color: #5C6B73;
     /* Atualizado para uma cor mais escura */
     font-family: 'Roboto Mono', monospace;
 }
 
 .modal-content input {
-    padding: 8px;
+    padding: 10px;
+    /* Aumentei o padding para um campo de entrada mais confortável */
     border-radius: 4px;
     border: 1px solid #324A5F;
-    /* Atualizado para usar a cor da paleta */
+    /* Cor da borda */
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
+    /* Aumentei a margem inferior para mais espaço entre campos */
     background-color: #CCC9DC;
-    /* Cor de fundo mais clara */
+    /* Cor de fundo do input */
     color: #324A5F;
     /* Cor do texto do input */
+    font-size: 14px;
+    /* Tamanho de fonte legível */
 }
 
 .modal-content button {
     background-color: #324A5F;
     /* Cor do botão */
-    padding: 10px 15px;
+    padding: 12px 20px;
+    /* Aumentei o padding para botões mais largos */
     border-radius: 5px;
     border: none;
     cursor: pointer;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    font-size: 14px;
+    /* Tamanho de fonte legível para os botões */
+    margin: 5px 0;
+    /* Margem para separar os botões um do outro */
+    width: calc(100% - 10px);
+    /* Ajusta a largura dos botões */
 }
 
 .modal-content button:hover {
@@ -264,5 +330,58 @@ button:hover {
 }
 
 .modal-content button[type="submit"] {
-    margin-top: 10px;
+    margin-top: 20px;
+    /* Aumentei a margem superior para mais espaço do botão de submit */
+    border: 2px solid #9DB4C0;
+    /* Borda ao botão de submit para destaque */
+}
+
+.audio-container {
+    width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    border: 1px solid #5C6B73;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px;
+    box-shadow: 0px 0px 15px rgba(94, 107, 115, 0.5);
+}
+
+.audio-container p {
+    margin: 10px 0;
+    color: #253237;
+    font-family: 'Roboto', sans-serif;
+}
+
+.audio-controls {
+    display: flex;
+    /* Utiliza flexbox para alinhar os itens horizontalmente */
+    align-items: center;
+    /* Alinha os itens verticalmente no centro */
+}
+
+.audio-container audio {
+    width: 400px;
+    /* Áudio ocupa a largura total */
+    margin-right: 10px;
+    /* Espaçamento à direita do áudio */
+}
+
+.audio-container button {
+    background-color: #324A5F;
+    color: white;
+    padding: 20px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.audio-container button:hover {
+    background-color: #9DB4C0;
+    box-shadow: 0px 0px 10px rgba(94, 107, 115, 0.5);
 }
