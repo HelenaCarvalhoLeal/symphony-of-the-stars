@@ -48,7 +48,7 @@ function Mid5() {
       ))}
       {/* Botão que aparece suavemente */}
       {mostrarBotao && (
-        <Link to="/mid4">
+        <Link to="/home">
             <button>Let's get started</button>
         </Link>
       )}

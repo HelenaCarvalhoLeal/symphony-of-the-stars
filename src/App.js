@@ -24,6 +24,9 @@ function App() {
                 <Route path="/mid3" element={<Mid3 />} />
                 <Route path="/mid4" element={<Mid4 />} />
                 <Route path="/mid5" element={<Mid5 />} />
+                <Route path="/home" element={<Home />} />
+                <Route path="/upload" element={<ImageUploader />} />
+                <Route path="/api" element={<ImageList />} />
             </Routes>
        </Router>
     );
