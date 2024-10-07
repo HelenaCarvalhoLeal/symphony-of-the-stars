@@ -7,10 +7,11 @@ import localImages from './imagesAssets';
 const ImageList = () => {
     const MAX_IMAGES = 5;
     const [images, setImages] = useState([]);
-    const [page, setPage] = useState(1);
+    // const [page, setPage] = useState(1);
     const [draggedImage, setDraggedImage] = useState(null);
     const [droppedImages, setDroppedImages] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isModal2Open, setIsModal2Open] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
         proportion: '',
@@ -23,7 +24,7 @@ const ImageList = () => {
     const [frequ1, setFreq1] = useState(220);
     const [frequ2, setFreq2] = useState(880);
     const [durationsToneIn, setDurationsToneIn] = useState(400);
-    const [durationsToneFinal, setDurationsToneFinal] = useState(100);
+    const [durationsToneFinal, setDurationsToneFinal] = useState(1000);
     const [fade_in, setFade_in] = useState(0.1);
     const [fade_out, setFade_out] = useState(0.3);
     const [ratio, setRatio] = useState("20x20");
@@ -116,6 +117,7 @@ const ImageList = () => {
             setIsModalOpen(false);
             return
         }
+        if (formData.proportion === '') formData.proportion = ratio;
         setDroppedImages((prevImages) => [
             ...prevImages,
             { ...draggedImage, proportion: formData.proportion, duration: formData.duration }
@@ -123,7 +125,7 @@ const ImageList = () => {
         setDraggedImage(null);
         setIsModalOpen(false);
         setErrorMessage('')
-        setFormData({ proportion: '', duration: '' });
+        // setFormData({ proportion: '', duration: '' });
     };
 
     return (
@@ -139,13 +141,13 @@ const ImageList = () => {
             </div>
 
             <div className="drop-zone">
-                {/* <button onClick={() => {setIsModalOpen(true)}}>Open Config Sound</button> */}
+                <button onClick={() => {setIsModal2Open(true)}}>Open Config Music</button>
                 <h2>Central Area</h2>
                 <div className="box-drop-zone" onDrop={handleDrop} onDragOver={handleDragOver}>
                     {droppedImages.map((image) => {
                         return (
                             <div key={image.id} className="dropped-image">
-                                <img src={image.location} alt="image" width="200" />
+                                <img src={image.location} alt={image.id} width="200" />
                                 <p>{`Proporção: ${image.proportion}, Duração da música: Previsão em desenvolvimento`}</p>
                                 <button onClick={() => { handleFileChange(image.location) }}>Gerar</button>
                             </div>
@@ -261,6 +263,110 @@ const ImageList = () => {
                             <button type="submit">Confirmar</button>
                         </form>
                         <button onClick={() => setIsModalOpen(false)}>Cancel</button>
+                    </div>
+                </div>
+            )}
+
+            {isModal2Open && (
+                <div className="modal">
+                    <div className="modal-content">
+                        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Mensagem de erro no modal */}
+                        <h3>Configure Image</h3>
+                        <div>
+                            <label>
+                                Image Proportion:
+                                <input
+                                    type="text"
+                                    value={ratio}
+                                    onChange={(e) => {
+                                        setRatio(e.target.value);
+                                    }}
+                                    placeholder="Ex: 20x20"
+                                />
+                                Quanto maior a propoção maior o arquivo, a duração e mais demorado será sua conversão.
+                            </label>
+                            <br />
+
+                            <label>
+                                Taxa de amostragem:
+                                <input
+                                    type="text"
+                                    value={sampleRate}
+                                    onChange={(e) => setSampleRate(e.target.value)}
+                                    placeholder="Ex: 44100"
+                                />
+                            </label>
+                            <br />
+
+                            <label>
+                                Frequência 1:
+                                <input
+                                    type="text"
+                                    value={frequ1}
+                                    onChange={(e) => setFreq1(e.target.value)}
+                                    placeholder="Ex: 220"
+                                />
+                            </label>
+                            <br />
+
+                            <label>
+                                Frequência 2:
+                                <input
+                                    type="text"
+                                    value={frequ2}
+                                    onChange={(e) => setFreq2(e.target.value)}
+                                    placeholder="Ex: 880"
+                                />
+                            </label>
+                            <br />
+
+                            <label>
+                                Duração do tom inicial:
+                                <input
+                                    type="text"
+                                    value={durationsToneIn}
+                                    onChange={(e) => setDurationsToneIn(e.target.value)}
+                                    placeholder="Ex: 400"
+                                />
+                            </label>
+                            <br />
+
+                            <label>
+                                Duração do tom final:
+                                <input
+                                    type="text"
+                                    value={durationsToneFinal}
+                                    onChange={(e) => setDurationsToneFinal(e.target.value)}
+                                    placeholder="Ex: 1000"
+                                />
+                            </label>
+                            <br />
+
+                            <label>
+                                Duração do desbotamento inicial:
+                                <input
+                                    type="text"
+                                    value={fade_in}
+                                    onChange={(e) => setFade_in(e.target.value)}
+                                    placeholder="Ex: 0.1"
+                                />
+                            </label>
+                            <br />
+
+                            <label>
+                                Duração do desbotamento inicial::
+                                <input
+                                    type="text"
+                                    value={fade_out}
+                                    onChange={(e) => setFade_out(e.target.value)}
+                                    placeholder="Ex: 0.3"
+                                />
+                            </label>
+                            <br />
+
+                            <button onClick={() => setIsModal2Open(false)}>Fechar</button>
+                        </div>
+                        
                     </div>
                 </div>
             )}

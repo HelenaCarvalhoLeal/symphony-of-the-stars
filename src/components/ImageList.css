@@ -288,6 +288,15 @@ button:hover {
     font-family: 'Roboto Mono', monospace;
 }
 
+.modal-content div label {
+    display: block;
+    margin-bottom: 12px;
+    /* Aumentei a margem inferior para mais espaço */
+    color: #5C6B73;
+    /* Atualizado para uma cor mais escura */
+    font-family: 'Roboto Mono', monospace;
+}
+
 .modal-content input {
     padding: 10px;
     /* Aumentei o padding para um campo de entrada mais confortável */

@@ -50,6 +50,8 @@ const ImageUploader = () => {
             const durations = [400, 1000];
             const fade_in_duration = 0.1;
             const fade_out_duration = 0.3;
+            const ratioX = 20;
+            const ratioY = 20;
 
             const wavBytes = generate_music_wasm(
                 imageBytes,
@@ -59,7 +61,9 @@ const ImageUploader = () => {
                 freq2,
                 durations,
                 fade_in_duration,
-                fade_out_duration
+                fade_out_duration,
+                ratioX,
+                ratioY,
             );
 
             const blob = new Blob([wavBytes], { type: 'audio/wav' });
