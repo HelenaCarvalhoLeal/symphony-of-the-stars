@@ -133,3 +133,55 @@ html, body {
 .Start button:active {
     transform: scale(0.98); /* Efeito de pressionamento do botão */
 }
+
+.Intro {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 80%;
+}
+
+.Intro button {
+    font-size: 16px;
+    margin: 10px;
+    padding: 10px 10px; /* Mantenha o padding para o espaçamento interno */
+    border: 2px solid #CCC9DC;
+    background-color: transparent;
+    color: #CCC9DC;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.5s ease;
+    opacity: 0; /* Inicialmente invisível */
+    animation: fadeIn 3s forwards; /* Animação de fade-in para o botão */
+}
+
+.Intro button:hover {
+    background-color: #000000; /* Fundo escuro ao passar o mouse */
+    color: #fff; /* Texto branco no hover */
+    transform: scale(1.05); /* Leve aumento ao passar o mouse */
+}
+
+.Intro button:focus {
+    outline: none; /* Remove o foco padrão do botão */
+}
+
+.Intro button:active {
+    transform: scale(0.98); /* Efeito de pressionamento do botão */
+}
+
+/* Animação de fade-in para palavras e botão */
+@keyframes fadeIn {
+    from {
+        opacity: 0; /* Início invisível */
+    }
+    to {
+        opacity: 1; /* Totalmente visível */
+    }
+}
+
+.fade-in {
+    opacity: 0; /* Inicia invisível */
+    animation: fadeIn 0.5s forwards; /* Animação de fade-in */
+}
