@@ -11,6 +11,7 @@ const ImageList = () => {
     const [draggedImage, setDraggedImage] = useState(null);
     const [droppedImages, setDroppedImages] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [errorMessage, setErrorMessage] = useState('');
     const [formData, setFormData] = useState({
         proportion: '',
         duration: ''
@@ -97,6 +98,7 @@ const ImageList = () => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (droppedImages.length >= MAX_IMAGES) {
+            setErrorMessage(`Você só pode adicionar até ${MAX_IMAGES} imagens.`);
             setDraggedImage(null);
             setIsModalOpen(false);
             return
@@ -107,6 +109,7 @@ const ImageList = () => {
         ]);
         setDraggedImage(null);
         setIsModalOpen(false);
+        setErrorMessage('')
         setFormData({ proportion: '', duration: '' });
     };
 
@@ -136,12 +139,12 @@ const ImageList = () => {
 
                 {audioURL && (
                     <div className="audio-container">
-                        {loading && <p>Gerando música...</p>}
+                        {loading && <p>Generating Music...</p>}
                         {error && <p style={{ color: 'red' }}>{error}</p>}
                         {audioURL && (
                             <div>
                                 <audio controls src={audioURL}></audio>
-                                <button onClick={handleDownload}>Baixar Música</button>
+                                <button onClick={handleDownload}>Download Music</button>
                             </div>
                         )}
                     </div>
@@ -154,10 +157,11 @@ const ImageList = () => {
             {isModalOpen && (
                 <div className="modal">
                     <div className="modal-content">
-                        <h3>Configurar imagem</h3>
+                        {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>} {/* Mensagem de erro no modal */}
+                        <h3>Configure Image</h3>
                         <form onSubmit={handleFormSubmit}>
                             <label>
-                                Proporção da imagem:
+                                Image Proportion:
                                 <input
                                     type="text"
                                     value={formData.proportion}
@@ -178,9 +182,9 @@ const ImageList = () => {
                                 />
                             </label>
                             <br />
-                            <button type="submit">Confirmar</button>
+                            {droppedImages.length != 5 && <button type="submit">Confirm</button>}
                         </form>
-                        <button onClick={() => setIsModalOpen(false)}>Cancelar</button>
+                        <button onClick={() => setIsModalOpen(false)}>Cancel</button>
                     </div>
                 </div>
             )}
