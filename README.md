@@ -1,70 +1,48 @@
-# Getting Started with Create React App
+# Symphony Of The Stars
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+We are all frequency
 
-## Available Scripts
+Our project brings inclusion to blind and visually impaired people.
 
-In the project directory, you can run:
+It also educates through detailed image information that the user can drag and drop to listen. Furthermore, our project tells the story of the James Webb telescope from its mission, discoveries and future perspectives.
 
-### `npm start`
+In this synesthesia of senses, what emotion or sensation does the image provoke in you? Vastness, wonder, excitement, curiosity or something else?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Now try our final project, close your eyes and listen.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Thanks.
 
-### `npm test`
+## Packages
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ReactJS
+###
+```
+axios = "^1.7.7"
+```
 
-### `npm run build`
+### Rust
+###
+```
+wasm-bindgen = "0.2.93"
+image = "0.23.14"
+rand = "0.8.5"
+hound = "3.4.0"
+getrandom = { version = "0.2", features = ["js"] }
+```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Usage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### To compile Rust language code to WebAssembly:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+```
+If you haven't yet: cargo install wasm-bindgen-cli
 
-### `npm run eject`
+Build: cargo build --target wasm32-unknown-unknown --release
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Build to WebAssembly: wasm-bindgen target/wasm32-unknown-unknown/release/wasm.wasm --out-dir ./pkg --target web
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+#### To start the project, use the command: `npm start`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+#### To build: `npm run dev`
