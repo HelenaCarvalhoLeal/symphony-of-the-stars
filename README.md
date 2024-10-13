@@ -46,3 +46,5 @@ Build to WebAssembly: wasm-bindgen target/wasm32-unknown-unknown/release/wasm.wa
 #### To start the project, use the command: `npm start`
 
 #### To build: `npm run dev`
+
+Links: https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/allfrequency/?tab=details
