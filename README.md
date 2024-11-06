@@ -4,7 +4,7 @@ We are all frequency
 
 Our project brings inclusion to blind and visually impaired people.
 
-It also educates through detailed image information that the user can drag and drop to listen. Furthermore, our project tells the story of the James Webb telescope from its mission, discoveries and future perspectives.
+It also educates through detailed image information, whose images the user can drag and drop to listen. Furthermore, our project tells the story of the James Webb telescope from its mission, discoveries and future perspectives.
 
 In this synesthesia of senses, what emotion or sensation does the image provoke in you? Vastness, wonder, excitement, curiosity or something else?
 
