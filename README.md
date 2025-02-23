@@ -50,4 +50,4 @@ Build to WebAssembly: wasm-bindgen target/wasm32-unknown-unknown/release/wasm.wa
 Links: 
 - https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/allfrequency/?tab=details
 - https://www.youtube.com/watch?v=kFvFFpKtFEY
-- https://symphony-of-the-stars.vercel.app/
+- [Site](https://symphony-of-the-stars.vercel.app/)
