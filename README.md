@@ -1,4 +1,4 @@
-# Symphony Of The Stars
+# [Symphony Of The Stars](https://symphony-of-the-stars.vercel.app/)
 
 We are all frequency
 
@@ -50,4 +50,3 @@ Build to WebAssembly: wasm-bindgen target/wasm32-unknown-unknown/release/wasm.wa
 Links: 
 - https://www.spaceappschallenge.org/nasa-space-apps-2024/find-a-team/allfrequency/?tab=details
 - https://www.youtube.com/watch?v=kFvFFpKtFEY
-- [Site](https://symphony-of-the-stars.vercel.app/)
